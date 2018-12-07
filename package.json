@@ -1,0 +1,24 @@
+{
+  "name": "micro",
+  "version": "1.0.0",
+  "description": "Microservices",
+  "main": "index.js",
+  "repository": "https://github.com/zanedb/micro",
+  "author": "Zane Davis-Barrs [https://zane.sh] <contact@zane.sh>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.15",
+    "uuid-js": "^0.7.5"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
+  },
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon -r dotenv/config index.js"
+  }
+}
