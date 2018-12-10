@@ -18,7 +18,7 @@
     "dotenv": "^6.2.0"
   },
   "scripts": {
-    "start": "node .",
+    "start": "node -r dotenv/config index.js",
     "dev": "nodemon -r dotenv/config index.js"
   }
 }
