@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const router = express.Router()
 const UUID = require('uuid-js')
 const axios = require('axios')
@@ -14,7 +15,7 @@ router.post('/new', async (req, res) => {
   try {
     const item = new Item({
       created_at: new Date().toISOString(),
-      urlKey: UUID.create()
+      urlKey: new mongoose.Types.ObjectId()
     })
     await item.save()
     res.json({
