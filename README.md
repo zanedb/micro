@@ -37,3 +37,30 @@
     ]
   }
   ```
+
+### Setup:
+
+1. Create a file in the root directory called `.env`, containing the following:
+
+```
+# MongoDB instance URI
+MONGODB_URI=
+# root URL of app in production, ex. https://micro.zane.sh
+URL=
+# API key for ipstack.com, used for geolocating
+IPSTACK_API_KEY=
+```
+
+2. Install packages:
+
+```
+yarn
+```
+
+3. Run!
+
+```
+yarn start
+# or, for development:
+yarn dev
+```
