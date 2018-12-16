@@ -32,7 +32,32 @@
     "clicks": [
       {
         "timestamp": "2018-12-01T01:15:34.693Z",
-        "ip": "127.0.0.1"
+        "ip": "127.0.0.1",
+        "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36",
+        "geo": {
+          "ip": "127.0.0.1",
+          "type": "ipv4",
+          "continent_code": null,
+          "continent_name": null,
+          "country_code": null,
+          "country_name": null,
+          "region_code": null,
+          "region_name": null,
+          "city": null,
+          "zip": null,
+          "latitude": null,
+          "longitude": null,
+          "location": {
+            "geoname_id": null,
+            "capital": null,
+            "languages": null,
+            "country_flag": null,
+            "country_flag_emoji": null,
+            "country_flag_emoji_unicode": null,
+            "calling_code": null,
+            "is_eu": false
+          }
+        }
       }
     ]
   }

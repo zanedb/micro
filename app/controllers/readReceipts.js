@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const UUID = require('uuid-js')
+const axios = require('axios')
 
 const Item = require('../models/item')
 const Click = require('../models/click')
@@ -33,11 +34,21 @@ router.get('/:key', async (req, res) => {
       : req.params.key
     const item = await Item.findOne({ urlKey: key }).exec()
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    const ipGeoRequest = await axios.get(
+      `http://api.ipstack.com/${ip}?access_key=${
+        process.env.IPSTACK_API_KEY
+      }&format=1`
+    )
+    const userAgent = req.headers['user-agent']
     const click = new Click({
       timestamp: new Date().toISOString(),
       ip: ip,
+      userAgent: userAgent,
+      geo: ipGeoRequest.data,
       itemId: item.id
     })
+    console.log(click)
+    console.log(ipGeoRequest.data)
     await click.save()
     if (req.path.endsWith('.png')) {
       res.sendFile('pixel.png', { root: __dirname + '/../../static/' })
@@ -56,7 +67,9 @@ router.get('/stats/:id', async (req, res) => {
     clicks.forEach(click => {
       filteredClicks.push({
         timestamp: click.timestamp,
-        ip: click.ip
+        ip: click.ip,
+        userAgent: click.userAgent,
+        geo: click.geo
       })
     })
     res.json({ total: filteredClicks.length, clicks: filteredClicks })
