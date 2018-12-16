@@ -47,8 +47,6 @@ router.get('/:key', async (req, res) => {
       geo: ipGeoRequest.data,
       itemId: item.id
     })
-    console.log(click)
-    console.log(ipGeoRequest.data)
     await click.save()
     if (req.path.endsWith('.png')) {
       res.sendFile('pixel.png', { root: __dirname + '/../../static/' })
