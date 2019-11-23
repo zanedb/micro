@@ -1,3 +1,5 @@
+require('dotenv').config({ path: '../../' })
+
 const express = require('express')
 const mongoose = require('mongoose')
 const router = express.Router()
@@ -36,9 +38,7 @@ router.get('/:key', async (req, res) => {
     const item = await Item.findOne({ urlKey: key }).exec()
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
     const ipGeoRequest = await axios.get(
-      `http://api.ipstack.com/${ip}?access_key=${
-        process.env.IPSTACK_API_KEY
-      }&format=1`
+      `http://api.ipstack.com/${ip}?access_key=${process.env.IPSTACK_API_KEY}&format=1`
     )
     const userAgent = req.headers['user-agent']
     const click = new Click({
