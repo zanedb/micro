@@ -76,6 +76,8 @@ URL=
 IPSTACK_API_KEY=
 # optional, leave blank for 3000
 PORT=
+# optional, leave blank unless using a proxy (i.e. Nginx)
+TRUST_PROXY=
 ```
 
 2. Install packages:

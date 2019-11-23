@@ -7,6 +7,7 @@ const cors = require('cors')
 
 const app = express()
 const port = process.env.PORT || 3000
+process.env.TRUST_PROXY && app.set('trust proxy', true)
 mongoose.connect(process.env.MONGODB_URI)
 
 app.use(bodyParser.json())
