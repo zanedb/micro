@@ -74,6 +74,8 @@ MONGODB_URI=
 URL=
 # API key for ipstack.com, used for geolocating
 IPSTACK_API_KEY=
+# optional, leave blank for 3000
+PORT=
 ```
 
 2. Install packages:
