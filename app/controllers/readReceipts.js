@@ -36,7 +36,7 @@ router.get('/:key', async (req, res) => {
       ? req.params.key.slice(0, -4)
       : req.params.key
     const item = await Item.findOne({ urlKey: key }).exec()
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
+    const ip = req.get('X-Forwarded-For') || req.connection.remoteAddress
     const ipGeoRequest = await axios.get(
       `http://api.ipstack.com/${ip}?access_key=${process.env.IPSTACK_API_KEY}&format=1`
     )
